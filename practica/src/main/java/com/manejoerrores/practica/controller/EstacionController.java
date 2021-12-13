@@ -25,7 +25,9 @@ public class EstacionController {
         return service.findAll();
     }
 
+    @GetMapping("/{id}")
     public Optional<Estacion> findById(@PathVariable Long id){
         return service.findById(id);
     }
+
 }

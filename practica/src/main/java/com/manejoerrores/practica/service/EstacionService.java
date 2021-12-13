@@ -19,8 +19,8 @@ public class EstacionService extends BaseService<Estacion, Long, EstacionReposit
     }
 
     @Override
-    public Optional<Estacion> findById(Long aLong) {
-        return super.findById(aLong);
+    public Optional<Estacion> findById(Long id) {
+        return super.findById(id);
     }
 
     @Override
@@ -33,10 +33,6 @@ public class EstacionService extends BaseService<Estacion, Long, EstacionReposit
         return super.edit(estacion);
     }
 
-    @Override
-    public void delete(Estacion estacion) {
-        super.delete(estacion);
-    }
 
     @Override
     public void deleteById(Long aLong) {
