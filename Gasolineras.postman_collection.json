@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "a5a92840-5935-44ea-a37f-88bd801c91c3",
+		"name": "Gasolineras",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Buscar todas las Estaciones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar una Estación",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/estacion/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Estación",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Galp - Estación de Servicio - Sevilla - SE30 Ronda Norte\",\r\n    \"marca\": \"Galp\",\r\n    \"ubicacion\": \"37.3838284,-6.0271693\",\r\n    \"servicios\": \"Contamos con una gran variedad de aceites de coche\",\r\n    \"tieneAutolavado\": false,\r\n    \"precioGasoleoNormal\": 1.39,\r\n    \"precioGasolina95Octanos\": 1.95,\r\n    \"precioGasoilEspecial\": 1.15,\r\n    \"precioGasolina98\": 1.30,\r\n    \"fechaApertura\": \"2016-04-26\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar Estación",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Galp - Estación de Servicio - Sevilla - SE30 Ronda Norte\",\r\n    \"marca\": \"Galp\",\r\n    \"ubicacion\": \"37.3838284,-6.0271693\",\r\n    \"servicios\": \"Contamos con una gran variedad de aceites de coche\",\r\n    \"tieneAutolavado\": false,\r\n    \"precioGasoleoNormal\": 1.39,\r\n    \"precioGasolina95Octanos\": 1.95,\r\n    \"precioGasoilEspecial\": 1.15,\r\n    \"precioGasolina98\": 1.30,\r\n    \"fechaApertura\": \"2016-04-26\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/estacion/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar Estación",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/estacion/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estacion",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
