@@ -14,6 +14,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,8 +40,8 @@ public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({EntityNotFoundException.class})
-    public ResponseEntity<?> handleNotFoundException(EntityNotFoundException ex, WebRequest request) {
-        return buildApiError(ex, request);
+    public ResponseEntity<?> handleNotFoundException(EntityNotFoundException exception, WebRequest request) {
+        return buildApiError(exception, HttpStatus.NOT_FOUND, request, new ArrayList<>());
     }
 
 
@@ -56,6 +57,19 @@ public class GlobalRestControllerAdvice extends ResponseEntityExceptionHandler {
                 .status(HttpStatus.NOT_FOUND)
                 .body(new ApiError(HttpStatus.NOT_FOUND, mensaje, ((ServletWebRequest) request).getRequest().getRequestURI(), subErrores));
 
+    }
+
+    private ResponseEntity<Object> buildApiError(Exception exception, HttpStatus status, WebRequest request, List<ApiSubError> subErrorList){
+
+        ApiError error = ApiError.builder()
+                .estado(status)
+                .codigo(status.value())
+                .ruta(((ServletWebRequest) request).getRequest().getRequestURI())
+                .mensaje(exception.getMessage())
+                .subErrors(subErrorList)
+                .build();
+
+        return ResponseEntity.status(status).body(error);
     }
 
 }

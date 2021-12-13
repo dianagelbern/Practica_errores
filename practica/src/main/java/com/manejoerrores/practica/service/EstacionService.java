@@ -2,6 +2,9 @@ package com.manejoerrores.practica.service;
 
 import com.manejoerrores.practica.dto.CreateEstacionDto;
 import com.manejoerrores.practica.dto.EstacionDtoConverter;
+import com.manejoerrores.practica.dto.GetEstacionDto;
+import com.manejoerrores.practica.error.excepciones.ListEntityNotFoundException;
+import com.manejoerrores.practica.error.excepciones.SingleEntityNotFoundException;
 import com.manejoerrores.practica.model.Estacion;
 import com.manejoerrores.practica.repository.EstacionRepository;
 import lombok.RequiredArgsConstructor;
@@ -21,11 +24,19 @@ public class EstacionService {
 
     public List<Estacion> findAll(){
         List<Estacion> result = repository.findAll();
-        return result;
+        if (result.isEmpty()) {
+            throw new ListEntityNotFoundException(GetEstacionDto.class);
+        } else {
+            return result;
+        }
     }
 
     public Optional<Estacion> findById(Long id){
-        return repository.findById(id);
+               if(repository.findById(id).isEmpty()){
+                   throw new SingleEntityNotFoundException(id.toString(), Estacion.class);
+               }else{
+                   return repository.findById(id);
+               }
     }
 
     public Estacion save(CreateEstacionDto create, EstacionDtoConverter converter){
