@@ -23,7 +23,7 @@ public class EstacionDtoConverter {
                 .fechaApertura(e.getFechaApertura()).build();
     }
 
-    public Estacion createEstacionDto(CreateEstacionDto c){
+    public Estacion createEstacionDtoTEstacion(CreateEstacionDto c){
         return Estacion.builder()
                 .nombre(c.getNombre())
                 .marca(c.getMarca())
