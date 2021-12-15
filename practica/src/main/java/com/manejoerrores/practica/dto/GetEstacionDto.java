@@ -18,4 +18,5 @@ public class GetEstacionDto {
     private double precioGasoleoNormal, precioGasolina95Octanos, precioGasoilEspecial, precioGasolina98;
 
     private LocalDate fechaApertura;
+    private LocalDate fechaRegistro;
 }

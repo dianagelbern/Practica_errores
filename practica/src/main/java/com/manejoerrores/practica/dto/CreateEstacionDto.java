@@ -1,5 +1,8 @@
 package com.manejoerrores.practica.dto;
 
+import com.manejoerrores.practica.validacion.anotaciones.FechaAdecuada;
+import com.manejoerrores.practica.validacion.anotaciones.LatlongAdecuada;
+import com.manejoerrores.practica.validacion.anotaciones.UniqueName;
 import lombok.*;
 
 import javax.persistence.Lob;
@@ -14,6 +17,8 @@ import java.time.LocalDate;
 @Builder
 @Getter
 @Setter
+@LatlongAdecuada(ubicacionField = "ubicacion", message = "{estacion.ubicacion.latlon}")
+@FechaAdecuada(fechaAperturaField = "fechaApertura", fechaRegistroField = "fechaRegistro", message = "{estacion.fecha.adecuada}")
 public class CreateEstacionDto {
 
 
@@ -23,6 +28,7 @@ public class CreateEstacionDto {
     @NotNull(message = "{estacion.marca.null}")
     private String marca;
     @NotNull(message = "{estacion.ubicacion.null}")
+    @UniqueName(message = "{estacion.ubicacion.unica}")
     private String ubicacion;
     @Lob
     private String servicios;
@@ -41,4 +47,6 @@ public class CreateEstacionDto {
     @PastOrPresent(message = "{estacion.fecha.anterior}")
     private LocalDate fechaApertura;
 
+    @Builder.Default
+    private LocalDate fechaRegistro = LocalDate.now();
 }

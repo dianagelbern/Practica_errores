@@ -20,7 +20,8 @@ public class EstacionDtoConverter {
                 .precioGasolina95Octanos(e.getPrecioGasolina95Octanos())
                 .precioGasoleoNormal(e.getPrecioGasoleoNormal())
                 .precioGasolina98(e.getPrecioGasolina98())
-                .fechaApertura(e.getFechaApertura()).build();
+                .fechaApertura(e.getFechaApertura())
+                .fechaRegistro(e.getFechaRegistro()).build();
     }
 
     public Estacion createEstacionDtoTEstacion(CreateEstacionDto c){

@@ -30,4 +30,7 @@ public class Estacion {
 
     private LocalDate fechaApertura;
 
+    @Builder.Default
+    private LocalDate fechaRegistro = LocalDate.now();
+
 }
