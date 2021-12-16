@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "3303da4c-0c62-43c3-a345-a656ee4f781a",
+		"name": "Validacion",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registrar usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"login\":\"diana\",\r\n    \"email\":\"diana@me\",\r\n    \"verifyEmail\":\"diana@me\",\r\n    \"password\":\"Mggfdf_ghj\",\r\n    \"verifyPassword\":\"Mggfdf_ghj\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/usuario/v2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"usuario",
+						"v2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
